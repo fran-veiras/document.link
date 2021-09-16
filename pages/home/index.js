@@ -15,6 +15,9 @@ export default function HomePage() {
   const cats = useCategories();
   const router = useRouter();
   const sourcesJs = useSources();
+  const techFilter = techStatus;
+
+  console.log(techFilter);
 
   //info
 
@@ -24,7 +27,16 @@ export default function HomePage() {
     user && setInfo(user);
   }, [user]);
 
-  //categorie
+  //see more
+
+  const [view, setView] = useState(true);
+
+  const viewMore = () => {
+    view === false && setView(!false);
+    view === !false && setView(!true);
+  };
+
+  const filter = () => {};
 
   return (
     <div className="container">
@@ -40,25 +52,29 @@ export default function HomePage() {
       <section>
         <h1 className="title-sources">Javascript</h1>
         <div className="source-section">
-          {sourcesJs.map((src) => {
-            return (
-              <>
-                <Sources
-                  key={src.title}
-                  title={src.title}
-                  desc={src.description}
-                  tech={src.technologies}
-                  link={src.link}
-                  photo={src.photoUrl}
-                  format={src.format}
-                  user={src.user}
-                />
-              </>
-            );
-          })}
+          {sourcesJs
+            .filter((cat) => cat.technologies === techFilter)
+            .map((src) => {
+              return (
+                <>
+                  <Sources
+                    key={src.title}
+                    title={src.title}
+                    desc={src.description}
+                    tech={src.technologies}
+                    link={src.link}
+                    photo={src.photoUrl}
+                    format={src.format}
+                    user={src.user}
+                  />
+                </>
+              );
+            })}
         </div>
         <div className="btn-container">
-          <button className="btn-grad">Ver más</button>
+          <button onClick={viewMore} className="btn-grad">
+            {(view === false && 'Ver menos') || 'Ver más'}
+          </button>
         </div>
       </section>
       <style jsx>
@@ -84,8 +100,8 @@ export default function HomePage() {
             transition: 0.5s;
           }
           .source-section {
-            max-height: 500px;
-            overflow: hidden;
+            max-height: ${view ? '500px' : '1000px'};
+            overflow-y: ${view ? 'hidden' : 'scroll'};
           }
 
           .view-more {

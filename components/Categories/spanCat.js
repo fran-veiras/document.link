@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const SpanCat = ({ tech }) => {
   const [activeCategorie, setActiveCategorie] = useState(false);
 
   const handleChange = () => {
+    const techStatus = tech;
+    console.log(techStatus);
     if (activeCategorie === false) {
       setActiveCategorie(!false);
+      return techStatus;
     } else {
       setActiveCategorie(!true);
     }
