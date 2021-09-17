@@ -9,6 +9,7 @@ import { Sources } from '../../components/SourcesData';
 import useCategories from '../../hooks/useCategories';
 import useSources from '../../hooks/useSources';
 import useUser from '../../hooks/useUser';
+import Head from 'next/head';
 
 export default function HomePage() {
   const user = useUser();
@@ -39,6 +40,10 @@ export default function HomePage() {
 
   return (
     <div className="container">
+      <Head>
+        <title>Document.link</title>
+        <link rel="shortcut icon" href="/code.png" />
+      </Head>
       <NavBar avatar={Info.avatar} name={Info.username} />
       <section>
         <Portada />

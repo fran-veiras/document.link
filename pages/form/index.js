@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AddInfo } from '../../firebase/client';
 import useUser from '../../hooks/useUser';
 import router from 'next/router';
+import Head from 'next/head';
 
 const INPUT_STATES = {
   USER_NOT_KNOWN: 0,
@@ -53,6 +54,10 @@ export default function Form() {
 
   return (
     <section onSubmit={handleSubmit}>
+      <Head>
+        <title>Gracias por estar</title>
+        <link rel="shortcut icon" href="/code.png" />
+      </Head>
       <div className="container">
         <div className="title">
           <h1>¡Gracias por estar!</h1>

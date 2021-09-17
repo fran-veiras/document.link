@@ -7,6 +7,7 @@ import { loginWithGitHub } from '../firebase/client';
 import useUser, { USER_STATES } from '../hooks/useUser';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 export default function Home() {
   const router = useRouter();
@@ -24,6 +25,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Document.link - sign</title>
+        <link rel="shortcut icon" href="/code.png" />
+      </Head>
       <section>
         <div className={styles.container}>
           <img src="/logo.png" alt="logo" />
