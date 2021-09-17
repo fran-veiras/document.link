@@ -37,8 +37,6 @@ export default function HomePage() {
     view === !false && setView(!true);
   };
 
-  const filter = () => {};
-
   return (
     <div className="container">
       <NavBar avatar={Info.avatar} name={Info.username} />

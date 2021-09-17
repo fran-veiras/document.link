@@ -1,9 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from 'next/router';
 import React from 'react';
 import useCategories from '../../hooks/useCategories';
 
 export const Portada = () => {
   const cats = useCategories();
+  const router = useRouter();
+
+  const form = () => {
+    router.push('/form');
+  };
 
   return (
     <div className="about">
@@ -14,7 +20,9 @@ export const Portada = () => {
           relacionados al Frontend
         </p>
         <p>¿Estas listo para empezar a aprender con contenido gratuito?</p>
-        <button className="btn-grad">Empezar</button>
+        <button onClick={form} className="btn-grad">
+          Colaborar
+        </button>
       </div>
       <div className="img-box">
         <img src="/portada.png" alt="codeando" />

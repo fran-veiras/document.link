@@ -12,6 +12,8 @@ const firebaseConfig = {
 
 firebase.apps.length === 0 && firebase.initializeApp(firebaseConfig);
 
+const db = firebase.firestore();
+
 const mapUserFromFirebaseAuthToUser = (user) => {
   const { displayName, email, photoURL, uid } = user;
 
@@ -36,4 +38,14 @@ export const loginWithGitHub = () => {
     .auth()
     .signInWithPopup(gitHubProvider)
     .then(mapUserFromFirebaseAuthToUser);
+};
+
+export const AddInfo = ({ avatar, content, userId, username }) => {
+  return db.collection('links').add({
+    avatar,
+    content,
+    userId,
+    username,
+    createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+  });
 };
