@@ -15,9 +15,10 @@ export default function HomePage() {
   const cats = useCategories();
   const router = useRouter();
   const sourcesJs = useSources();
-  const techFilter = techStatus;
 
-  console.log(techFilter);
+  const [activeCategorie, setActiveCategorie] = useState([]);
+
+  // console.log(ActiveCategorie);
 
   //info
 
@@ -45,15 +46,21 @@ export default function HomePage() {
         <Portada />
         <div className="categories">
           {cats.map((cat) => {
-            return <SpanCat key={cat.technologies} tech={cat.technologies} />;
+            return (
+              <SpanCat
+                activeCategorie={activeCategorie}
+                setActiveCategorie={setActiveCategorie}
+                key={cat.technologies}
+                tech={cat.technologies}
+              />
+            );
           })}
         </div>
       </section>
       <section>
-        <h1 className="title-sources">Javascript</h1>
         <div className="source-section">
           {sourcesJs
-            .filter((cat) => cat.technologies === techFilter)
+            .filter((cat) => cat.technologies === activeCategorie)
             .map((src) => {
               return (
                 <>
@@ -70,22 +77,15 @@ export default function HomePage() {
                 </>
               );
             })}
-        </div>
-        <div className="btn-container">
-          <button onClick={viewMore} className="btn-grad">
-            {(view === false && 'Ver menos') || 'Ver más'}
-          </button>
+          {activeCategorie.length > 0 && (
+            <button onClick={viewMore} className="btn-grad">
+              {(view === true && 'Ver más') || 'Ver menos'}
+            </button>
+          )}
         </div>
       </section>
       <style jsx>
         {`
-          .btn-container {
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-          }
           button {
             position: absolute;
             bottom: -30px;
@@ -100,8 +100,12 @@ export default function HomePage() {
             transition: 0.5s;
           }
           .source-section {
-            max-height: ${view ? '500px' : '1000px'};
+            max-height: ${view ? '500px' : '500px'};
             overflow-y: ${view ? 'hidden' : 'scroll'};
+            transition: 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .view-more {

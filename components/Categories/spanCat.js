@@ -1,18 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 
-export const SpanCat = ({ tech }) => {
-  const [activeCategorie, setActiveCategorie] = useState(false);
+export const SpanCat = ({ tech, setActiveCategorie, activeCategorie }) => {
+  const [categorie, setCategorie] = useState(false);
 
   const handleChange = () => {
     const techStatus = tech;
-    console.log(techStatus);
-    if (activeCategorie === false) {
-      setActiveCategorie(!false);
-      return techStatus;
+    if (categorie === false) {
+      setCategorie(!false);
+      setActiveCategorie(techStatus);
     } else {
-      setActiveCategorie(!true);
+      setCategorie(!true);
+      setActiveCategorie([]);
     }
   };
+
+  useEffect(() => {
+    const techStatus = tech;
+    activeCategorie !== techStatus && setCategorie(!true);
+  }, [activeCategorie]);
 
   return (
     <>
@@ -25,7 +31,7 @@ export const SpanCat = ({ tech }) => {
           border: 1px solid rgb(16, 185, 129);
           display: inline-block;
           color: #fff;
-          background: ${activeCategorie ? 'rgb(16, 185, 129)' : 'none'};
+          background: ${categorie ? 'rgb(16, 185, 129)' : 'none'};
           border-radius: 9999px;
           margin: 5px 5px;
           cursor: pointer;
