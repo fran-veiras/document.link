@@ -1,61 +1,145 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import { Button } from '../components/button/Button';
-import styles from '../styles/Home.module.css';
-import { loginWithGitHub } from '../firebase/client';
-import useUser, { USER_STATES } from '../hooks/useUser';
 import { useRouter } from 'next/dist/client/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { NavBar } from '../components/nav/NavBar';
+import { Portada } from '../components/Portada/Portada';
+import { Sources } from '../components/SourcesData';
+import useCategories from '../hooks/useCategories';
+import useSources from '../hooks/useSources';
+import useUser from '../hooks/useUser';
 import Head from 'next/head';
+import { SpanCat } from '../components/Categories/spanCat';
+import { USER_STATES } from '../hooks/useUser';
 
-export default function Home() {
-  const router = useRouter();
-  const user = useUser();
+export default function HomePage() {
+  const cats = useCategories();
+  const sourcesJs = useSources();
 
-  useEffect(() => {
-    user && router.replace('/home');
-  }, [user]);
+  const [activeCategorie, setActiveCategorie] = useState([]);
 
-  const handleClick = () => {
-    loginWithGitHub().catch((err) => {
-      console.log(err);
-    });
+  // console.log(ActiveCategorie);
+
+  //info
+
+  const [Info, setInfo] = useState([]);
+
+  //see more
+
+  const [view, setView] = useState(true);
+
+  const viewMore = () => {
+    view === false && setView(!false);
+    view === !false && setView(!true);
   };
 
   return (
-    <>
+    <div className="container">
       <Head>
-        <title>Document.link - sign</title>
+        <title>Document.link</title>
         <link rel="shortcut icon" href="/code.png" />
       </Head>
+      <NavBar />
       <section>
-        <div className={styles.container}>
-          <img src="/logo.png" alt="logo" />
-          <h3>
-            Welcome, here you will find communities and programming links 👨‍💻👩‍💻
-          </h3>
-          {user === USER_STATES.NOT_LOGED && <Button onClick={handleClick} />}
-          {user === USER_STATES.NOT_KNOWN && (
-            <img className="spiner" src="/loading.gif" />
+        <Portada />
+        <div className="categories">
+          {cats.map((cat) => {
+            return (
+              <SpanCat
+                activeCategorie={activeCategorie}
+                setActiveCategorie={setActiveCategorie}
+                key={cat.technologies}
+                tech={cat.technologies}
+              />
+            );
+          })}
+        </div>
+      </section>
+      <section>
+        <div className="source-section">
+          {sourcesJs
+            .filter((cat) => cat.technologies === activeCategorie)
+            .map((src) => {
+              return (
+                <>
+                  <Sources
+                    key={src.title}
+                    title={src.title}
+                    desc={src.description}
+                    tech={src.technologies}
+                    link={src.link}
+                    photo={src.photoUrl}
+                    format={src.format}
+                    user={src.user}
+                  />
+                </>
+              );
+            })}
+          {activeCategorie.length > 0 && (
+            <button onClick={viewMore} className="btn-grad">
+              {(view === true && 'Ver más') || 'Ver menos'}
+            </button>
           )}
         </div>
       </section>
-      <style jsx>{`
-        .spiner {
-          width: 25px;
-        }
+      <style jsx>
+        {`
+          button {
+            position: absolute;
+            bottom: -30px;
+            opacity: 0.5;
+            transition: 0.5s;
+            background: rgb(16, 185, 129);
+          }
+          button:hover {
+            position: absolute;
+            bottom: -30px;
+            opacity: 1;
+            transition: 0.5s;
+          }
+          .source-section {
+            max-height: ${view ? '500px' : '500px'};
+            overflow-y: ${view ? 'hidden' : 'scroll'};
+            transition: 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
 
-        section {
-          display: flex;
-          height: 100vh;
-          align-items: center;
-          justify-content: center;
-        }
-        img {
-          width: 220px;
-        }
-      `}</style>
-    </>
+          .view-more {
+            position: absolute;
+          }
+
+          .title-sources {
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 50px;
+          }
+
+          /* NO BORRAR */
+          .categories {
+            display: block;
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 4%;
+          }
+
+          section {
+            width: 60vw;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+            margin-bottom: 2rem;
+          }
+          .container {
+            padding: 20px;
+            width: 100vw;
+            height: 100%;
+            background: #1e3163;
+          }
+        `}
+      </style>
+    </div>
   );
 }

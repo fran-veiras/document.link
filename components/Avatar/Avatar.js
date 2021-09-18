@@ -7,7 +7,7 @@ export const Avatar = ({ src }) => {
 
   return (
     <div>
-      <img src={src} alt="profile-photo" />
+      {user && <img src={src} alt="profile-photo" />}
       <style jsx>{`
         img {
           width: 50px;

@@ -5,10 +5,6 @@ export const NavBar = ({ avatar, name }) => {
   return (
     <nav>
       <section>
-        <div className="profile-container">
-          <Avatar src={avatar} />
-          <h1>{name}</h1>
-        </div>
         <div className="title-container">
           <h2>DOCUMENT.LINK</h2>
         </div>

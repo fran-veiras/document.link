@@ -42,7 +42,7 @@ export default function Form() {
       username: user.username,
     })
       .then(() => {
-        router.push('/home');
+        router.push('/');
       })
 
       .catch((err) => {
