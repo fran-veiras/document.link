@@ -10,7 +10,6 @@ import useSources from '../hooks/useSources';
 import useUser from '../hooks/useUser';
 import Head from 'next/head';
 import { SpanCat } from '../components/Categories/spanCat';
-import { USER_STATES } from '../hooks/useUser';
 
 export default function HomePage() {
   const cats = useCategories();
@@ -128,7 +127,7 @@ export default function HomePage() {
           section {
             width: 60vw;
             margin: 0 auto;
-            margin-top: 100px;
+            margin-top: 50px;
             position: relative;
             margin-bottom: 2rem;
           }

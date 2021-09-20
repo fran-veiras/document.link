@@ -3,6 +3,9 @@
 
 const data = [
   {
+    technologies: 'Introducción',
+  },
+  {
     technologies: 'Javascript',
   },
   {

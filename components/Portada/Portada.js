@@ -25,10 +25,9 @@ export const Portada = () => {
         </button>
       </div>
       <div className="img-box">
-        <img src="/portada.png" alt="codeando" />
-        <a href="https://www.freepik.es/vectores/dibujos-animados">
-          Vector de Dibujos animados creado por vectorjuice - www.freepik.es
-        </a>
+        <div className="container">
+          <img src="/portada.png" alt="codeando" />
+        </div>
       </div>
       <style jsx>{`
         h1 {
@@ -84,10 +83,13 @@ export const Portada = () => {
           color: #fff;
           display: flex;
           gap: 130px;
+          margin-bottom: 8%;
+          margin-top: 100px;
         }
 
         img {
           width: 350px;
+          transition: 0.5s ease;
         }
       `}</style>
     </div>

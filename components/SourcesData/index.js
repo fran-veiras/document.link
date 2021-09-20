@@ -26,9 +26,10 @@ export const Sources = ({ title, desc, tech, link, photo, format, user }) => {
         }
         h3 {
           color: #fff;
+          margin-bottom: 0px;
         }
         .img {
-          width: 320px;
+          min-width: 320px;
           height: 180px;
           background: white;
           border-radius: 7px;
@@ -44,6 +45,7 @@ export const Sources = ({ title, desc, tech, link, photo, format, user }) => {
           display: flex;
           gap: 25px;
           margin: 20px 0px;
+          width: 100%;
         }
       `}</style>
     </div>
