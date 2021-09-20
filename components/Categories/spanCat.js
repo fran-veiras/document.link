@@ -1,7 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 
-export const SpanCat = ({ tech, setActiveCategorie, activeCategorie }) => {
+export const SpanCat = ({
+  tech,
+  setActiveCategorie,
+  activeCategorie,
+  setInitialTitle,
+}) => {
   const [categorie, setCategorie] = useState(false);
 
   const handleChange = () => {
@@ -9,6 +14,7 @@ export const SpanCat = ({ tech, setActiveCategorie, activeCategorie }) => {
     if (categorie === false) {
       setCategorie(!false);
       setActiveCategorie(techStatus);
+      setInitialTitle(!true);
     } else {
       setCategorie(!true);
       setActiveCategorie([]);
@@ -35,6 +41,7 @@ export const SpanCat = ({ tech, setActiveCategorie, activeCategorie }) => {
           border-radius: 9999px;
           margin: 5px 5px;
           cursor: pointer;
+          transition: 0.3s;
         }
 
         p {

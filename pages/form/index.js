@@ -146,6 +146,11 @@ export default function Form() {
           justify-content: center;
           flex-direction: column;
         }
+        @media only screen and (min-width: 275px) and (max-width: 860px) {
+          .container {
+            width: 90%;
+          }
+        }
       `}</style>
     </section>
   );

@@ -10,6 +10,7 @@ import useSources from '../hooks/useSources';
 import useUser from '../hooks/useUser';
 import Head from 'next/head';
 import { SpanCat } from '../components/Categories/spanCat';
+import 'animate.css';
 
 export default function HomePage() {
   const cats = useCategories();
@@ -32,6 +33,10 @@ export default function HomePage() {
     view === !false && setView(!true);
   };
 
+  // haz click tecnología
+
+  const [initialTitle, setInitialTitle] = useState(true);
+
   return (
     <div className="container">
       <Head>
@@ -41,6 +46,9 @@ export default function HomePage() {
       <NavBar />
       <section>
         <Portada />
+        <p className="intro-title animate__animated animate__backInRight">
+          ¡Haz click sobre la tecnología que deseas aprender!
+        </p>
         <div className="categories">
           {cats.map((cat) => {
             return (
@@ -49,6 +57,7 @@ export default function HomePage() {
                 setActiveCategorie={setActiveCategorie}
                 key={cat.technologies}
                 tech={cat.technologies}
+                setInitialTitle={setInitialTitle}
               />
             );
           })}
@@ -83,6 +92,12 @@ export default function HomePage() {
       </section>
       <style jsx>
         {`
+          .intro-title {
+            display: ${initialTitle ? 'block' : 'none'};
+            text-align: center;
+            color: #fff;
+            transition: 0.5s;
+          }
           button {
             position: absolute;
             bottom: -30px;
@@ -122,6 +137,7 @@ export default function HomePage() {
             text-align: center;
             margin-top: 4%;
             margin-bottom: 4%;
+            transition: 0.5s;
           }
 
           section {
@@ -131,6 +147,17 @@ export default function HomePage() {
             position: relative;
             margin-bottom: 2rem;
           }
+
+          @media only screen and (min-width: 275px) and (max-width: 860px) {
+            section {
+              width: 100%;
+              padding: 0px;
+            }
+            .container {
+              padding: 0px;
+            }
+          }
+
           .container {
             padding: 20px;
             width: 100vw;

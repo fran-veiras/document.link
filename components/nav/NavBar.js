@@ -37,6 +37,11 @@ export const NavBar = ({ avatar, name }) => {
           margin: 0;
           color: white;
         }
+        @media only screen and (min-width: 275px) and (max-width: 860px) {
+          section {
+            width: 90%;
+          }
+        }
       `}</style>
     </nav>
   );

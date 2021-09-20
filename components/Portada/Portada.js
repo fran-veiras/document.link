@@ -91,6 +91,23 @@ export const Portada = () => {
           width: 350px;
           transition: 0.5s ease;
         }
+
+        @media only screen and (min-width: 275px) and (max-width: 860px) {
+          .about {
+            padding: 0px;
+            flex-direction: column;
+            gap: 60px;
+          }
+          img {
+            width: 90%;
+            text-align: center;
+            transition: 0.5s ease;
+            margin-bottom: 60px;
+          }
+          .container {
+            text-align: center;
+          }
+        }
       `}</style>
     </div>
   );

@@ -30,7 +30,7 @@ export const Sources = ({ title, desc, tech, link, photo, format, user }) => {
         }
         .img {
           min-width: 320px;
-          height: 180px;
+          min-height: 180px;
           background: white;
           border-radius: 7px;
           flex: 1;
@@ -46,6 +46,22 @@ export const Sources = ({ title, desc, tech, link, photo, format, user }) => {
           gap: 25px;
           margin: 20px 0px;
           width: 100%;
+        }
+
+        @media only screen and (min-width: 275px) and (max-width: 860px) {
+          .container {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            margin: 30px 0px;
+          }
+          .img {
+            min-width: 260px;
+            min-height: 180px;
+          }
+          h1 {
+            margin-bottom: 15px;
+          }
         }
       `}</style>
     </div>
