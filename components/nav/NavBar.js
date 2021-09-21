@@ -1,13 +1,14 @@
 import React from 'react';
-import { Avatar } from '../Avatar/Avatar';
+import { SearchBar } from '../SearchBar';
 
-export const NavBar = ({ avatar, name }) => {
+export const NavBar = () => {
   return (
     <nav>
       <section>
         <div className="title-container">
           <h2>DOCUMENT.LINK</h2>
         </div>
+        <SearchBar />
       </section>
       <style jsx>{`
         section {

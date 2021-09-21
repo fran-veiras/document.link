@@ -7,7 +7,6 @@ import { Portada } from '../components/Portada/Portada';
 import { Sources } from '../components/SourcesData';
 import useCategories from '../hooks/useCategories';
 import useSources from '../hooks/useSources';
-import useUser from '../hooks/useUser';
 import Head from 'next/head';
 import { SpanCat } from '../components/Categories/spanCat';
 import 'animate.css';
