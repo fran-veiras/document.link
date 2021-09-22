@@ -29,7 +29,7 @@ export const SearchBar = () => {
         value={categorie}
         type="text"
         className="search-bar"
-        placeholder="search content.."
+        placeholder="busqueda.."
         onKeyDown={keyHandleActive}
       />
       <span className="focus-border"></span>
