@@ -43,7 +43,7 @@ export const SearchBar = () => {
               categorie.length > 0 &&
               (cat.description.toLowerCase().includes(categorie) ||
                 cat.title.toLowerCase().includes(categorie) ||
-                cat.description.toLowerCase().includes(categorie))
+                cat.technologies.toLowerCase().includes(categorie))
           )
           .map((src) => {
             return (

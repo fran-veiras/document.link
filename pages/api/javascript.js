@@ -118,6 +118,17 @@ const javascript = [
     photoUrl: '/mozilla.png',
     format: 'Escrito',
   },
+  {
+    user: 'jonmircha',
+    title: 'Curso JavaScript: 1. Introducción',
+    description:
+      'En este video comienzo un nuevo curso de #JavaScript, donde te doy una introducción a la historia y características del lenguaje.',
+    technologies: 'Javascript',
+    link: 'https://www.youtube.com/watch?v=2SetvwBV-SU&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&ab_channel=jonmircha',
+    photoUrl:
+      'https://i.ytimg.com/vi/2SetvwBV-SU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAKyNZGP1w0Asmz6p_MOA8q2Txr7A',
+    format: 'Video',
+  },
   // react
   {
     user: 'Midu dev',
@@ -171,6 +182,63 @@ const javascript = [
     photoUrl:
       'https://i.ytimg.com/vi/4QSUtO5fPyg/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLD5IkGHKRQ52IAaaT1m_K84Gk9XsA',
     format: 'Video',
+  },
+
+  // next
+  {
+    user: 'Lee Robinson',
+    title: 'Introduction to React 2025',
+    description:
+      'Build and deploy a modern SaaS application using the most popular open-source software.',
+    technologies: 'NextJs',
+    link: 'https://www.youtube.com/watch?v=MxR5I5_hOKk&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=2&ab_channel=LeeRobinson',
+    photoUrl:
+      'https://i.ytimg.com/vi/MxR5I5_hOKk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLChm-HdUCDZFcEc6jNeH2y5G5aLqA',
+    format: 'Video',
+  },
+  {
+    user: 'Midu dev',
+    title:
+      'Aprendiendo NextJS, el framework de React con Server Side Rendering',
+    description:
+      'NextJS es el framework más famoso de React. Nos proporciona muchas facilidades para desarrollar apps con la biblioteca de Facebook como un sistema de rutas basado en archivos físicos, ServerSide Rendering, generación de archivos estáticos, React Fast Refresh y mucho más.',
+    technologies: 'NextJs',
+    link: 'https://www.youtube.com/watch?v=2jxc8DMzt0I&list=PLV8x_i1fqBw1VR86y4C72xMGJ8ifjBwJ6&ab_channel=midudev',
+    photoUrl:
+      'https://i.ytimg.com/vi/2jxc8DMzt0I/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBgXiGPhhN1NjYJhH6dAbwOgWAgvA',
+    format: 'Video',
+  },
+  {
+    user: 'Lee Robinson',
+    title: 'Introduction to Next.js – Next vs. Gatsby vs. CRA',
+    description:
+      'Companies all over the world are using Next.js to build performant, scalable applications.',
+    technologies: 'NextJs',
+    link: 'https://www.youtube.com/watch?v=uQeidE2LA1s&ab_channel=LeeRobinson',
+    photoUrl:
+      'https://i.ytimg.com/vi/uQeidE2LA1s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO4Y2KKzCo-3RsjkmZpieDbvlYbQ',
+    format: 'Video',
+  },
+  {
+    user: 'Oscar Barajas',
+    title: 'Introduction to Next.js – Next vs. Gatsby vs. CRA',
+    description:
+      'Una comparativa llena de referencias para elegir la mejor tecnología que nos ayude a desplegar nuestras aplicaciones como páginas estáticas o aprovechar las ventajas del server side rendering.',
+    technologies: 'NextJs',
+    link: 'https://www.youtube.com/watch?v=I5N2_Uu-yr0&ab_channel=OscarBarajas',
+    photoUrl:
+      'https://i.ytimg.com/vi/I5N2_Uu-yr0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBYW1W9EpH-4xB6wuj1p4tpCLsGyw',
+    format: 'Video',
+  },
+  {
+    user: 'Dylan Vassallo',
+    title: 'Getting Started with Next.js - VSCode, ESLint and Prettier',
+    description: '',
+    technologies: 'NextJs',
+    link: 'https://dev.to/achmand/getting-started-with-next-js-vscode-eslint-and-prettier-3pap',
+    photoUrl:
+      'https://res.cloudinary.com/practicaldev/image/fetch/s--0WjInt3k--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ys4tpy990jhlmcwxf62z.png',
+    format: 'Escrito',
   },
 ];
 

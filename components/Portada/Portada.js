@@ -100,6 +100,7 @@ export const Portada = () => {
           }
           img {
             width: 90%;
+            max-width: 350px;
             text-align: center;
             transition: 0.5s ease;
             margin-bottom: 60px;
